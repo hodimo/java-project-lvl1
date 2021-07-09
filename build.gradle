@@ -10,16 +10,21 @@ plugins {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+    mainClass = 'src.main.java.hexlet.code.App'
 }
 
 compileJava {
-    options.release = 15
+    options.release = 11
 }
 
 repositories {
     mavenCentral()
 }
+
+run {
+    standardInput = System.in
+}
+
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
