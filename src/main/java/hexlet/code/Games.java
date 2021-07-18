@@ -20,9 +20,9 @@ class Games {
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n", answer, correct);
                 System.out.printf("Let's try again, %s!%n", Cli.getName());
-                break;
+                return;
             }
-            System.out.printf("Congratulations, %s!%n", Cli.getName());
         }
+        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 }
