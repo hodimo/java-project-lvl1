@@ -7,7 +7,7 @@ class Games {
     static void even() {
         Cli.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int condition = 3; //because of "magic numbers"
+        final int condition = 3; //because of "magic numbers"
 
         for (int i = 0; i < condition; i++) {
             int num = ThreadLocalRandom.current().nextInt();
