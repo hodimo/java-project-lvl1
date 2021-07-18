@@ -2,13 +2,14 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-class Cli {
+public class Cli {
     private static String name;
+
     static String getName() {
         return name;
     }
 
-    static void greeting() {
+    public static void greeting() {
         System.out.print("May I have your name? ");
         Scanner in = new Scanner(System.in);
         name = in.nextLine();
