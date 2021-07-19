@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Engine {
-    public final static int ROUNDS = 3;
+    public static final int ROUNDS = 3;
     private static String answer;
     private static int successfulRound = 0;
 
