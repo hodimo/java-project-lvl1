@@ -19,9 +19,6 @@ public class App {
         System.out.println("Welcome to the Brain Games!");
 
         switch (Integer.parseInt(input)) {
-            case (0):
-                System.out.println("See u later.");
-                break;
             case (1):
                 Cli.greeting();
                 break;
