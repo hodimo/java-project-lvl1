@@ -4,11 +4,11 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Engine {
-    public final static int rounds = 3;
+    public final static int ROUNDS = 3;
     private static String answer;
     private static int successfulRound = 0;
 
-    public static void interaction (String question, String correct) {
+    public static void interaction(String question, String correct) {
         System.out.println("Question: " + question);
         setAnswer();
         if (getAnswer().equals(correct)) {
@@ -36,7 +36,7 @@ public class Engine {
     }
 
     public static void showIfDone() {
-        if (successfulRound < rounds - 1) {
+        if (successfulRound < ROUNDS - 1) {
             successfulRound++;
         } else {
             System.out.printf("Congratulations, %s!%n", Cli.getName());

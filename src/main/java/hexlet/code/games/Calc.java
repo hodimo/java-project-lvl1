@@ -8,8 +8,8 @@ public class Calc {
         char[] operators = {'+', '-', '*'};
         Cli.greeting();
         System.out.println("What is the result of the expression?");
-        for (int i = 0; i < Engine.rounds; i++) {
-            final int index = Engine.randomNum(3);
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            final int index = Engine.randomNum(operators.length);
             final int operand1 = Engine.randomNum(100);
             final int operand2 = Engine.randomNum(100);
             final String question = String.format("%d %c %d", operand1, operators[index], operand2);
