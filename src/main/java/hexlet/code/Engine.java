@@ -31,9 +31,9 @@ public class Engine {
         answer = in.nextLine();
     }
 
-    public static String getAnswer() {
+    private static String getAnswer() {
         return answer;
-    }
+    } //нужен ли этот getter?
 
     public static void showIfDone() {
         if (successfulRound < ROUNDS - 1) {

@@ -10,10 +10,10 @@ public class GCD {
         Cli.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            final int num1 = Engine.randomNum(100);
-            final int num2 = Engine.randomNum(100);
-            final String question = String.format("%d %d", num1, num2);
-            final String correct = String.format("%d", findGCD(num1, num2));
+            int num1 = Engine.randomNum(100);
+            int num2 = Engine.randomNum(100);
+            String question = String.format("%d %d", num1, num2);
+            String correct = String.format("%d", findGCD(num1, num2));
             Engine.interaction(question, correct);
             Engine.showIfDone();
         }
