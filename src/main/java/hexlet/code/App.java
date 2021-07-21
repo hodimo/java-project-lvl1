@@ -1,7 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
@@ -20,23 +23,23 @@ public class App {
 
         System.out.println("Welcome to the Brain Games!");
 
-        switch (Integer.parseInt(input)) {
-            case (1):
+        switch (input) {
+            case ("1"):
                 Cli.greeting();
                 break;
-            case (2):
+            case ("2"):
                 Even.even();
                 break;
-            case (3):
+            case ("3"):
                 Calc.calc();
                 break;
-            case (4):
+            case ("4"):
                 GCD.gcd();
                 break;
-            case (5):
+            case ("5"):
                 Progression.progression();
                 break;
-            case (6):
+            case ("6"):
                 Prime.prime();
                 break;
             default:

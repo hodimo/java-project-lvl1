@@ -2,13 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Progression {
-    private static final int DEFAULT_LENGTH = 5;
-    private static int initNum = Engine.randomNum(10);
+    private static final int DEFAULT_LENGTH = 4;
+    private static final int LENGTH_BOUND = 7;
+    private static final int DIFF_BOUND = 10;
 
     public static void progression() {
         Cli.greeting();
@@ -27,7 +27,8 @@ public class Progression {
 
     private static ArrayList<Integer> generateProgression() {
         int length = generateLength();
-        int difference = Engine.randomNum(10);
+        int initNum = Engine.randomNum(Engine.END_BOUND);
+        int difference = Engine.randomNum(DIFF_BOUND);
         ArrayList<Integer> progression = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             progression.add(initNum);
@@ -37,6 +38,6 @@ public class Progression {
     }
 
     private static int generateLength() {
-        return DEFAULT_LENGTH + Engine.randomNum(6);
+        return DEFAULT_LENGTH + Engine.randomNum(LENGTH_BOUND);
     }
 }

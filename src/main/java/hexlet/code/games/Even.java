@@ -8,7 +8,7 @@ public class Even {
         Cli.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int num = Engine.randomNum(100);
+            int num = Engine.randomNum(Engine.END_BOUND);
             String question = Integer.toString(num);
             String correct = num % 2 == 0 ? "yes" : "no";
             Engine.interaction(question, correct);

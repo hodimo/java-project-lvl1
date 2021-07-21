@@ -10,7 +10,7 @@ public class Prime {
         Cli.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int num = Engine.randomNum(100);
+            int num = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d", num);
             String correct = filter(num);
             Engine.interaction(question, correct);

@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
-
 import java.util.ArrayList;
 
 public class GCD {
@@ -10,8 +9,8 @@ public class GCD {
         Cli.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int num1 = Engine.randomNum(100);
-            int num2 = Engine.randomNum(100);
+            int num1 = Engine.randomNum(Engine.END_BOUND);
+            int num2 = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
             Engine.interaction(question, correct);
