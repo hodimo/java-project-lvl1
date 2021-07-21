@@ -10,7 +10,7 @@ public class Engine {
     private static String answer;
     private static int successfulRound = 0;
 
-    public static void interaction(String question, String correct) {
+    public static void interact(String question, String correct) {
         System.out.println("Question: " + question);
         setAnswer();
         if (answer.equals(correct)) {

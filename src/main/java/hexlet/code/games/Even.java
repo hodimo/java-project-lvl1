@@ -11,7 +11,7 @@ public class Even {
             int num = Engine.randomNum(Engine.END_BOUND);
             String question = Integer.toString(num);
             String correct = num % 2 == 0 ? "yes" : "no";
-            Engine.interaction(question, correct);
+            Engine.interact(question, correct);
             Engine.showIfDone();
         }
     }

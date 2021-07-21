@@ -20,7 +20,7 @@ public class Progression {
                     .replaceAll("[\\[\\],g]", "")
                     .replaceFirst("(" + unknown + ")", "..");
             String correct = Integer.toString(unknown);
-            Engine.interaction(question, correct);
+            Engine.interact(question, correct);
             Engine.showIfDone();
         }
     }

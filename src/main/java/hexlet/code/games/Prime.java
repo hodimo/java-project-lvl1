@@ -13,7 +13,7 @@ public class Prime {
             int num = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d", num);
             String correct = filter(num);
-            Engine.interaction(question, correct);
+            Engine.interact(question, correct);
             Engine.showIfDone();
         }
     }

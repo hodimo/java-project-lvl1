@@ -13,13 +13,13 @@ public class Calc {
             final int operand1 = Engine.randomNum(Engine.END_BOUND);
             final int operand2 = Engine.randomNum(Engine.END_BOUND);
             final String question = String.format("%d %c %d", operand1, operators[index], operand2);
-            final String correct = calculation(operators, index, operand1, operand2);
-            Engine.interaction(question, correct);
+            final String correct = calculate(operators, index, operand1, operand2);
+            Engine.interact(question, correct);
             Engine.showIfDone();
         }
     }
 
-    private static String calculation(char[] operators, int ind, int o1, int o2) {
+    private static String calculate(char[] operators, int ind, int o1, int o2) {
         switch (operators[ind]) {
             case ('+'):
                 return Integer.toString(Math.addExact(o1, o2));

@@ -13,7 +13,7 @@ public class GCD {
             int num2 = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
-            Engine.interaction(question, correct);
+            Engine.interact(question, correct);
             Engine.showIfDone();
         }
 
