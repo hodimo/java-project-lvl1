@@ -3,10 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-
 public class Prime {
-    private static final int[] primes = new int[] {2, 3, 5, 7, 11};
+    private static final int[] PRIMES = new int[] {2, 3, 5, 7, 11};
 
     public static void prime() {
         Cli.greeting();
@@ -21,7 +19,7 @@ public class Prime {
     }
 
     private static String filter(int num) {
-        for (int prime : primes) {
+        for (int prime : PRIMES) {
             if (num == prime) {
                 return "yes";
             } else if (num % prime == 0) {
