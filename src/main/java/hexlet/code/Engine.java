@@ -7,38 +7,23 @@ public class Engine {
     public static final int ROUNDS = 3;
     private static final int START_BOUND = 1;
     public static final int END_BOUND = 100;
-    private static String answer;
-    private static int successfulRound = 0;
 
-    public static void interact(String question, String correct) {
+    public static boolean interact(String question, String correct) {
         System.out.println("Question: " + question);
-        setAnswer();
+        System.out.print("Your answer: ");
+        Scanner in = new Scanner(System.in);
+        String answer = in.nextLine();
         if (answer.equals(correct)) {
             System.out.println("Correct!");
         } else {
             System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n", answer, correct);
             System.out.printf("Let's try again, %s!%n", Cli.getName());
-            successfulRound = 0;
-            System.exit(0);
+            return false;
         }
+        return true;
     }
 
     public static int randomNum(int bound) {
         return ThreadLocalRandom.current().nextInt(START_BOUND, bound);
-    }
-
-    private static void setAnswer() {
-        System.out.print("Your answer: ");
-        Scanner in = new Scanner(System.in);
-        answer = in.nextLine();
-    }
-
-    public static void showIfDone() {
-        if (successfulRound < ROUNDS - 1) {
-            successfulRound++;
-        } else {
-            System.out.printf("Congratulations, %s!%n", Cli.getName());
-            successfulRound = 0;
-        }
     }
 }

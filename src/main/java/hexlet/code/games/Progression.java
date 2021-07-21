@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,9 +21,12 @@ public class Progression {
                     .replaceAll("[\\[\\],g]", "")
                     .replaceFirst("(" + unknown + ")", "..");
             String correct = Integer.toString(unknown);
-            Engine.interact(question, correct);
-            Engine.showIfDone();
+            boolean isSuccess = Engine.interact(question, correct);
+            if (!isSuccess) {
+                return;
+            }
         }
+        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 
     private static ArrayList<Integer> generateProgression() {

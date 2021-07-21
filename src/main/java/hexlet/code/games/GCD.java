@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+
 import java.util.ArrayList;
 
 public class GCD {
@@ -13,10 +14,12 @@ public class GCD {
             int num2 = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
-            Engine.interact(question, correct);
-            Engine.showIfDone();
+            boolean isSuccess = Engine.interact(question, correct);
+            if (!isSuccess) {
+                return;
+            }
         }
-
+        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 
     private static int findGCD(int num1, int num2) {

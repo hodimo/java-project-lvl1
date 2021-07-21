@@ -13,9 +13,12 @@ public class Prime {
             int num = Engine.randomNum(Engine.END_BOUND);
             String question = String.format("%d", num);
             String correct = filter(num);
-            Engine.interact(question, correct);
-            Engine.showIfDone();
+            boolean isSuccess = Engine.interact(question, correct);
+            if (!isSuccess) {
+                return;
+            }
         }
+        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 
     private static String filter(int num) {

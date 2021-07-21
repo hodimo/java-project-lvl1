@@ -11,8 +11,11 @@ public class Even {
             int num = Engine.randomNum(Engine.END_BOUND);
             String question = Integer.toString(num);
             String correct = num % 2 == 0 ? "yes" : "no";
-            Engine.interact(question, correct);
-            Engine.showIfDone();
+            boolean isSuccess = Engine.interact(question, correct);
+            if (!isSuccess) {
+                return;
+            }
         }
+        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 }

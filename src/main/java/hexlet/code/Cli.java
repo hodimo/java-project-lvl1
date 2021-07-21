@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cli {
     private static String name;
 
-    static String getName() {
+    public static String getName() {
         return name;
     }
 
