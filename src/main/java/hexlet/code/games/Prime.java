@@ -23,7 +23,9 @@ public class Prime {
 
     private static String filter(int num) {
         for (int prime : PRIMES) {
-            if (num == prime) {
+            if (num == 1) {
+                return "no";
+            } else if (num == prime) {
                 return "yes";
             } else if (num % prime == 0) {
                 return "no";
