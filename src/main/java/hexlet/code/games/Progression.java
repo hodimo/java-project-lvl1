@@ -1,38 +1,40 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Progression {
-    private static final int DEFAULT_LENGTH = 4;
-    private static final int LENGTH_BOUND = 7;
-    private static final int DIFF_BOUND = 10;
+    private static final int DEFAULT_LENGTH = 5;
+    private static final int LENGTH_BOUND = 6;
+    private static final int DEFAULT_DIFF = 1;
+    private static final int DIFF_BOUND = 9;
 
     public static void progression() {
-        Cli.greeting();
+        Engine.greeting();
         System.out.println("What number is missing in the progression?");
-        for (int i = 0; i < Engine.ROUNDS; i++) {
+        generateSentences();
+        Engine.interact();
+    }
+
+    public static void generateSentences() {
+        for (int i = 0; i < Engine.sentences.length; i++) {
             ArrayList<Integer> progression = generateProgression();
-            int unknown = progression.get(Engine.randomNum(progression.size()));
+            int unknown = progression.get(Engine.RANDOM.nextInt(progression.size()));
             String question = Arrays.toString(progression.toArray())
                     .replaceAll("[\\[\\],g]", "")
                     .replaceFirst("(" + unknown + ")", "..");
             String correct = Integer.toString(unknown);
-            boolean isSuccess = Engine.interact(question, correct);
-            if (!isSuccess) {
-                return;
-            }
+            Engine.sentences[i][0] = question;
+            Engine.sentences[i][1] = correct;
         }
-        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 
     private static ArrayList<Integer> generateProgression() {
         int length = generateLength();
-        int initNum = Engine.randomNum(Engine.END_BOUND);
-        int difference = Engine.randomNum(DIFF_BOUND);
+        int initNum = Engine.RANDOM.nextInt(Engine.END_BOUND);
+        int difference = DEFAULT_DIFF + Engine.RANDOM.nextInt(DIFF_BOUND);
         ArrayList<Integer> progression = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             progression.add(initNum);
@@ -42,6 +44,6 @@ public class Progression {
     }
 
     private static int generateLength() {
-        return DEFAULT_LENGTH + Engine.randomNum(LENGTH_BOUND);
+        return DEFAULT_LENGTH + Engine.RANDOM.nextInt(LENGTH_BOUND);
     }
 }

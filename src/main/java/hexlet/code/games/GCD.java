@@ -1,48 +1,46 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.ArrayList;
 
 public class GCD {
     public static void gcd() {
-        Cli.greeting();
+        Engine.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
-        for (int i = 0; i < Engine.ROUNDS; i++) {
-            int num1 = Engine.randomNum(Engine.END_BOUND);
-            int num2 = Engine.randomNum(Engine.END_BOUND);
+        generateSentences();
+        Engine.interact();
+    }
+
+    public static void generateSentences() {
+        for (int i = 0; i < Engine.sentences.length; i++) {
+            int num1 = Engine.RANDOM.nextInt(Engine.END_BOUND);
+            int num2 = Engine.RANDOM.nextInt(Engine.END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
-            boolean isSuccess = Engine.interact(question, correct);
-            if (!isSuccess) {
-                return;
-            }
+            Engine.sentences[i][0] = question;
+            Engine.sentences[i][1] = correct;
         }
-        System.out.printf("Congratulations, %s!%n", Cli.getName());
     }
 
     private static int findGCD(int num1, int num2) {
+        int gcd = 1;
         ArrayList<Integer> dividers1 = findDividers(num1);
-        ArrayList<Integer> dividers2 = findDividers(num2);
-        for (int i = 0; i < dividers1.size(); i++) {
-            if (dividers2.contains(dividers1.get(i))) {
-                dividers2.remove(dividers1.get(i));
-            } else {
-                dividers1.set(i, 1);
+        for (Integer dividers : dividers1) {
+            if (num2 % dividers == 0) {
+                gcd *= dividers;
             }
         }
-        return dividers1.stream().mapToInt(n -> n)
-                .reduce(1, (result, n) -> result * n);
+        return gcd;
     }
 
-    private static ArrayList<Integer> findDividers(int num) {
+    private static ArrayList<Integer> findDividers(int num1) {
         ArrayList<Integer> dividers = new ArrayList<>();
-        int n = num;
+        int num = num1;
         int divider = 2;
-        while (n / divider >= 1) {
-            if (n % divider == 0) {
-                n = n / divider;
+        while (num / divider >= 1) {
+            if (num % divider == 0) {
+                num = num / divider;
                 dividers.add(divider);
             } else if (divider == 2) {
                 divider++;

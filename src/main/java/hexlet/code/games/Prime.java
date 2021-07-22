@@ -1,33 +1,38 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Prime {
-    private static final int[] PRIMES = new int[] {2, 3, 5, 7, 11};
-
     public static void prime() {
-        Cli.greeting();
+        Engine.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        for (int i = 0; i < Engine.ROUNDS; i++) {
-            int num = Engine.randomNum(Engine.END_BOUND);
-            String question = String.format("%d", num);
-            String correct = filter(num);
-            boolean isSuccess = Engine.interact(question, correct);
-            if (!isSuccess) {
-                return;
-            }
-        }
-        System.out.printf("Congratulations, %s!%n", Cli.getName());
+        generateSentences();
+        Engine.interact();
     }
 
-    private static String filter(int num) {
-        for (int prime : PRIMES) {
-            if (num == 1) {
-                return "no";
-            } else if (num == prime) {
-                return "yes";
-            } else if (num % prime == 0) {
+    public static void generateSentences() {
+        for (int i = 0; i < Engine.sentences.length; i++) {
+            int num = Engine.RANDOM.nextInt(Engine.END_BOUND);
+            String question = String.valueOf(num);
+            String correct = isPrime(num);
+            Engine.sentences[i][0] = question;
+            Engine.sentences[i][1] = correct;
+        }
+    }
+
+    private static String isPrime(int num) {
+        if (num < 2) {
+            return "no";
+        }
+        if (num == 2 || num == 3) {
+            return "yes";
+        }
+        if (num % 2 == 0 || num % 3 == 0) {
+            return "no";
+        }
+        int sqrtNum = (int) Math.sqrt(num) + 1;
+        for (int i = 6; i <= sqrtNum; i += 6) {
+            if (num % (i - 1) == 0 || num % (i + 1) == 0) {
                 return "no";
             }
         }
