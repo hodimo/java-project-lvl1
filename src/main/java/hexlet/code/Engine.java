@@ -9,7 +9,7 @@ public class Engine {
     public static final Scanner INPUT = new Scanner(System.in);
     public static final Random RANDOM = new Random();
     public static final int END_BOUND = 100;
-    public static final String[][] SENTENCES = new String[ROUNDS][];
+    public static final String[][] SENTENCES = new String[ROUNDS][2];
 
     public static void interact() {
         for (int i = 0; i < ROUNDS; i++) {
