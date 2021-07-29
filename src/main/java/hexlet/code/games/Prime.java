@@ -20,23 +20,21 @@ public class Prime {
         }
     }
 
-    private static final int LEAST_PRIME1 = 2;
-    private static final int LEAST_PRIME2 = 3;
-    private static final int INCREMENT = 6;
-
     private static String isPrime(int num) {
-        if (num < LEAST_PRIME1) {
+        final int startIterator = 3;
+        int sqrtNum = (int) Math.sqrt(num) + 1;
+        if (num < 2) {
             return "no";
         }
-        if (num == LEAST_PRIME1 || num == LEAST_PRIME2) {
+        if (num <= startIterator) {
             return "yes";
         }
-        if (num % LEAST_PRIME1 == 0 || num % LEAST_PRIME2 == 0) {
+
+        if (num % 2 == 0) {
             return "no";
         }
-        int sqrtNum = (int) Math.sqrt(num) + 1;
-        for (int i = INCREMENT; i <= sqrtNum; i += INCREMENT) {
-            if (num % (i - 1) == 0 || num % (i + 1) == 0) {
+        for (int i = startIterator; i <= sqrtNum; i += 2) {
+            if (num % i == 0) {
                 return "no";
             }
         }
