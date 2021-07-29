@@ -5,7 +5,6 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -18,12 +17,10 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-
+        String choice = Engine.INPUT.nextLine();
         System.out.println("Welcome to the Brain Games!");
 
-        switch (input) {
+        switch (choice) {
             case ("1"):
                 Engine.greeting();
                 break;

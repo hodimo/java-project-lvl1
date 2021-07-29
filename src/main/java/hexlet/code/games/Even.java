@@ -11,12 +11,12 @@ public class Even {
     }
 
     public static void generateSentences() {
-        for (int i = 0; i < Engine.sentences.length; i++) {
+        for (int i = 0; i < Engine.SENTENCES.length; i++) {
             int num = Engine.RANDOM.nextInt(Engine.END_BOUND);
             String question = String.valueOf(num);
             String correct = num % 2 == 0 ? "yes" : "no";
-            Engine.sentences[i][0] = question;
-            Engine.sentences[i][1] = correct;
+            Engine.SENTENCES[i][0] = question;
+            Engine.SENTENCES[i][1] = correct;
         }
     }
 }

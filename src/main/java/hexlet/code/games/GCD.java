@@ -13,13 +13,13 @@ public class GCD {
     }
 
     public static void generateSentences() {
-        for (int i = 0; i < Engine.sentences.length; i++) {
+        for (int i = 0; i < Engine.SENTENCES.length; i++) {
             int num1 = Engine.RANDOM.nextInt(Engine.END_BOUND);
             int num2 = Engine.RANDOM.nextInt(Engine.END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
-            Engine.sentences[i][0] = question;
-            Engine.sentences[i][1] = correct;
+            Engine.SENTENCES[i][0] = question;
+            Engine.SENTENCES[i][1] = correct;
         }
     }
 

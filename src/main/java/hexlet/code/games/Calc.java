@@ -12,14 +12,14 @@ public class Calc {
 
     public static void generateSentences() {
         char[] operators = {'+', '-', '*'};
-        for (int i = 0; i < Engine.sentences.length; i++) {
+        for (int i = 0; i < Engine.SENTENCES.length; i++) {
             int index = Engine.RANDOM.nextInt(operators.length);
             int operand1 = Engine.RANDOM.nextInt(Engine.END_BOUND);
             int operand2 = Engine.RANDOM.nextInt(Engine.END_BOUND);
             String question = String.format("%d %c %d", operand1, operators[index], operand2);
             String correct = calculate(operators, index, operand1, operand2);
-            Engine.sentences[i][0] = question;
-            Engine.sentences[i][1] = correct;
+            Engine.SENTENCES[i][0] = question;
+            Engine.SENTENCES[i][1] = correct;
         }
     }
 

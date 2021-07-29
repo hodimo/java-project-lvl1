@@ -19,15 +19,15 @@ public class Progression {
     }
 
     public static void generateSentences() {
-        for (int i = 0; i < Engine.sentences.length; i++) {
+        for (int i = 0; i < Engine.SENTENCES.length; i++) {
             ArrayList<Integer> progression = generateProgression();
             int unknown = progression.get(Engine.RANDOM.nextInt(progression.size()));
             String question = Arrays.toString(progression.toArray())
                     .replaceAll("[\\[\\],g]", "")
                     .replaceFirst("(" + unknown + ")", "..");
             String correct = Integer.toString(unknown);
-            Engine.sentences[i][0] = question;
-            Engine.sentences[i][1] = correct;
+            Engine.SENTENCES[i][0] = question;
+            Engine.SENTENCES[i][1] = correct;
         }
     }
 

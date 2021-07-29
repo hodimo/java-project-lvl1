@@ -11,27 +11,31 @@ public class Prime {
     }
 
     public static void generateSentences() {
-        for (int i = 0; i < Engine.sentences.length; i++) {
+        for (int i = 0; i < Engine.SENTENCES.length; i++) {
             int num = Engine.RANDOM.nextInt(Engine.END_BOUND);
             String question = String.valueOf(num);
             String correct = isPrime(num);
-            Engine.sentences[i][0] = question;
-            Engine.sentences[i][1] = correct;
+            Engine.SENTENCES[i][0] = question;
+            Engine.SENTENCES[i][1] = correct;
         }
     }
 
+    private static final int LEAST_PRIME1 = 2;
+    private static final int LEAST_PRIME2 = 3;
+    private static final int INCREMENT = 6;
+
     private static String isPrime(int num) {
-        if (num < 2) {
+        if (num < LEAST_PRIME1) {
             return "no";
         }
-        if (num == 2 || num == 3) {
+        if (num == LEAST_PRIME1 || num == LEAST_PRIME2) {
             return "yes";
         }
-        if (num % 2 == 0 || num % 3 == 0) {
+        if (num % LEAST_PRIME1 == 0 || num % LEAST_PRIME2 == 0) {
             return "no";
         }
         int sqrtNum = (int) Math.sqrt(num) + 1;
-        for (int i = 6; i <= sqrtNum; i += 6) {
+        for (int i = INCREMENT; i <= sqrtNum; i += INCREMENT) {
             if (num % (i - 1) == 0 || num % (i + 1) == 0) {
                 return "no";
             }
