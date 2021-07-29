@@ -25,10 +25,12 @@ public class GCD {
 
     private static int findGCD(int num1, int num2) {
         int gcd = 1;
+        int num = num2;
         ArrayList<Integer> dividers1 = findDividers(num1);
-        for (Integer dividers : dividers1) {
-            if (num2 % dividers == 0) {
-                gcd *= dividers;
+        for (Integer divider : dividers1) {
+            if (num % divider == 0) {
+                gcd *= divider;
+                num /= divider;
             }
         }
         return gcd;
