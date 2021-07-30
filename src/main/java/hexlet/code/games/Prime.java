@@ -1,28 +1,33 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
+    private static final int BOUND = 1000;
+
     public static void prime() {
         Engine.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        generateSentences();
-        Engine.interact();
+        Engine.interact(generateSentences());
     }
 
-    public static void generateSentences() {
-        for (int i = 0; i < Engine.SENTENCES.length; i++) {
-            int num = Engine.RANDOM.nextInt(Engine.END_BOUND);
+    private static String[][] generateSentences() {
+        String[][] sentences = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < sentences.length; i++) {
+            int num = Utils.random(BOUND);
             String question = String.valueOf(num);
             String correct = isPrime(num);
-            Engine.SENTENCES[i][0] = question;
-            Engine.SENTENCES[i][1] = correct;
+            sentences[i][0] = question;
+            sentences[i][1] = correct;
         }
+        return sentences;
     }
 
     private static String isPrime(int num) {
         final int startIterator = 3;
         int sqrtNum = (int) Math.sqrt(num) + 1;
+
         if (num < 2) {
             return "no";
         }

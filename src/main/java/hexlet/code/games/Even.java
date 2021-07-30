@@ -1,22 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
+    private static final int BOUND = 100;
+
     public static void even() {
         Engine.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        generateSentences();
-        Engine.interact();
+        Engine.interact(generateSentences());
     }
 
-    public static void generateSentences() {
-        for (int i = 0; i < Engine.SENTENCES.length; i++) {
-            int num = Engine.RANDOM.nextInt(Engine.END_BOUND);
-            String question = String.valueOf(num);
-            String correct = num % 2 == 0 ? "yes" : "no";
-            Engine.SENTENCES[i][0] = question;
-            Engine.SENTENCES[i][1] = correct;
+    private static String[][] generateSentences() {
+        String[][] sentences = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < sentences.length; i++) {
+            int number = Utils.random(BOUND);
+            String question = String.valueOf(number);
+            String correct = number % 2 == 0 ? "yes" : "no";
+            sentences[i][0] = question;
+            sentences[i][1] = correct;
         }
+        return sentences;
     }
 }

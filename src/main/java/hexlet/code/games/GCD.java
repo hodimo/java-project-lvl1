@@ -1,26 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.ArrayList;
 
 public class GCD {
+    private static final int BOUND = 100;
+
     public static void gcd() {
         Engine.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
-        generateSentences();
-        Engine.interact();
+        Engine.interact(generateSentences());
     }
 
-    public static void generateSentences() {
-        for (int i = 0; i < Engine.SENTENCES.length; i++) {
-            int num1 = Engine.RANDOM.nextInt(Engine.END_BOUND);
-            int num2 = Engine.RANDOM.nextInt(Engine.END_BOUND);
+    private static String[][] generateSentences() {
+        String[][] sentences = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < sentences.length; i++) {
+            int num1 = Utils.random(BOUND);
+            int num2 = Utils.random(BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
-            Engine.SENTENCES[i][0] = question;
-            Engine.SENTENCES[i][1] = correct;
+            sentences[i][0] = question;
+            sentences[i][1] = correct;
         }
+        return sentences;
     }
 
     private static int findGCD(int num1, int num2) {
