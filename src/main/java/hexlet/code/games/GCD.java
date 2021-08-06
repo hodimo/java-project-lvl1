@@ -9,9 +9,8 @@ public class GCD {
     private static final int BOUND = 100;
 
     public static void gcd() {
-        Engine.greeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
-        Engine.interact(generateSentences());
+        Engine.interact(generateSentences(),
+                "Find the greatest common divisor of given numbers.");
     }
 
     private static String[][] generateSentences() {

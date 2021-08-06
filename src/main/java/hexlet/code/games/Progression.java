@@ -14,9 +14,8 @@ public class Progression {
     private static final int INIT_BOUND = 100;
 
     public static void progression() {
-        Engine.greeting();
-        System.out.println("What number is missing in the progression?");
-        Engine.interact(generateSentences());
+        Engine.interact(generateSentences(),
+                "What number is missing in the progression?");
     }
 
     private static String[][] generateSentences() {

@@ -3,11 +3,14 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static String name;
     public static final int ROUNDS = 3;
     public static final Scanner INPUT = new Scanner(System.in);
 
-    public static void interact(String[][] sentences) {
+    public static void interact(String[][] sentences, String gameDescription) {
+        String name = getName();
+        greeting(name);
+        System.out.println(gameDescription);
+
         for (int i = 0; i < ROUNDS; i++) {
             String question = sentences[i][0];
             String correct = sentences[i][1];
@@ -26,9 +29,12 @@ public class Engine {
         System.out.printf("Congratulations, %s!%n", name);
     }
 
-    public static void greeting() {
+    public static String getName() {
         System.out.print("May I have your name? ");
-        name = INPUT.nextLine();
+        return INPUT.nextLine();
+    }
+
+    public static void greeting(String name) {
         System.out.printf("Hello, %s!%n", name);
     }
 }

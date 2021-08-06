@@ -9,9 +9,8 @@ public class Calc {
     private static final int END_BOUND = 50;
 
     public static void calc() {
-        Engine.greeting();
-        System.out.println("What is the result of the expression?");
-        Engine.interact(generateSentences());
+        Engine.interact(generateSentences(),
+                "What is the result of the expression?");
     }
 
     private static String[][] generateSentences() {
@@ -34,8 +33,10 @@ public class Calc {
                 return String.valueOf(Math.addExact(o1, o2));
             case ('-'):
                 return String.valueOf(Math.subtractExact(o1, o2));
-            default:
+            case ('*'):
                 return String.valueOf(Math.multiplyExact(o1, o2));
+            default:
+                throw new RuntimeException("Unexpected operator: " + OPERATORS[ind]);
         }
     }
 }

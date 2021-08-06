@@ -22,7 +22,7 @@ public class App {
 
         switch (choice) {
             case ("1"):
-                Engine.greeting();
+                Engine.greeting(Engine.getName());
                 break;
             case ("2"):
                 Even.even();
@@ -39,8 +39,10 @@ public class App {
             case ("6"):
                 Prime.prime();
                 break;
-            default:
+            case ("0"):
                 break;
+            default:
+                throw new RuntimeException("Unexpected choice: " + choice);
         }
     }
 }

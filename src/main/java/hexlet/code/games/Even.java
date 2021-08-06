@@ -7,9 +7,8 @@ public class Even {
     private static final int BOUND = 100;
 
     public static void even() {
-        Engine.greeting();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Engine.interact(generateSentences());
+        Engine.interact(generateSentences(),
+                "Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 
     private static String[][] generateSentences() {
