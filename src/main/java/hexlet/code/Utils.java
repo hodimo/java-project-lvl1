@@ -9,7 +9,7 @@ public class Utils {
         return RANDOM.nextInt(boundExclusive);
     }
 
-    public static int random(int startInclusive, int endExclusive) {
-        return startInclusive + RANDOM.nextInt(endExclusive) * 2;
+    public static int randomInRange(int startInclusive, int endExclusive) {
+        return startInclusive + RANDOM.nextInt(endExclusive - startInclusive);
     }
 }

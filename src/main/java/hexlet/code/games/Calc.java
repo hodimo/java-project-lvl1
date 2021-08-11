@@ -17,8 +17,8 @@ public class Calc {
         String[][] sentences = new String[Engine.ROUNDS][2];
         for (int i = 0; i < sentences.length; i++) {
             int index = Utils.random(OPERATORS.length);
-            int operand1 = Utils.random(START_BOUND, END_BOUND);
-            int operand2 = Utils.random(START_BOUND, END_BOUND);
+            int operand1 = Utils.randomInRange(START_BOUND, END_BOUND);
+            int operand2 = Utils.randomInRange(START_BOUND, END_BOUND);
             String question = String.format("%d %c %d", operand1, OPERATORS[index], operand2);
             String correct = calculate(index, operand1, operand2);
             sentences[i][0] = question;

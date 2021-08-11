@@ -6,7 +6,8 @@ import hexlet.code.Utils;
 import java.util.ArrayList;
 
 public class GCD {
-    private static final int BOUND = 100;
+    private static final int START_BOUND = 1;
+    private static final int END_BOUND = 100;
 
     public static void gcd() {
         Engine.interact(generateSentences(),
@@ -16,8 +17,8 @@ public class GCD {
     private static String[][] generateSentences() {
         String[][] sentences = new String[Engine.ROUNDS][2];
         for (int i = 0; i < sentences.length; i++) {
-            int num1 = Utils.random(BOUND);
-            int num2 = Utils.random(BOUND);
+            int num1 = Utils.randomInRange(START_BOUND, END_BOUND);
+            int num2 = Utils.randomInRange(START_BOUND, END_BOUND);
             String question = String.format("%d %d", num1, num2);
             String correct = String.format("%d", findGCD(num1, num2));
             sentences[i][0] = question;

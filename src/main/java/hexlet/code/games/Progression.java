@@ -36,7 +36,7 @@ public class Progression {
     private static ArrayList<Integer> generateProgression() {
         int length = generateLength();
         int initNum = Utils.random(INIT_BOUND);
-        int difference = DEFAULT_DIFF + Utils.random(DIFF_BOUND);
+        int difference = Utils.randomInRange(DEFAULT_DIFF, DIFF_BOUND);
         ArrayList<Integer> progression = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             progression.add(initNum);
@@ -46,6 +46,6 @@ public class Progression {
     }
 
     private static int generateLength() {
-        return DEFAULT_LENGTH + Utils.random(LENGTH_BOUND);
+        return Utils.randomInRange(DEFAULT_LENGTH, LENGTH_BOUND);
     }
 }
